@@ -60,7 +60,7 @@ class PrestaShopValetDriver extends ValetDriver
 
 
         // rewrite ^/([0-9])([0-9])(-[_a-zA-Z0-9-]*)?(-[0-9]+)?/.+\.jpg$ /img/p/$1/$2/$1$2$3.jpg last;
-        if (preg_match('/([0-9])(-[_a-zA-Z0-9-]*)\/(.*)/', $uri, $matches)) {
+        if (preg_match('/(^[0-9])(-[_a-zA-Z0-9-]*)\/(.*)/', $uri, $matches)) {
             $staticFilePath = "{$sitePath}/img/p/{$matches[1]}/{$matches[2]}/{$matches[1]}{$matches[2]}{$matches[3]}.jpg";
             
             if (is_file($staticFilePath)) {
